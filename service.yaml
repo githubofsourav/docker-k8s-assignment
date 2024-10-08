@@ -1,0 +1,13 @@
+apiVersion: v1 # k8s api version
+kind: Service
+metadata:
+  name: docker-k8s-assignment-service
+spec:
+  selector:
+    app: docker-k8s-assignment
+  ports:
+    - protocol: "TCP"
+      port: 8000 # port that the service is running on in the cluster
+      targetPort: 8081 # port exposed by the service
+  type: LoadBalancer # type of the service
+  # service types in k8s: NodePort, ClusterIp, LoadBalancer
